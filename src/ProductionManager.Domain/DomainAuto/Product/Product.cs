@@ -4,24 +4,25 @@ namespace ProductionManager.Domain.Entities
     public partial class Product  : BaseEntity
     {
         private Product(){}
-        public int ProductId    { get; init; } 
-        public int ModelVersionId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
+        public Int32 ModelVersionId    { get; init; } 
         public string ModelName    { get; init; }  = string.Empty; 
-        public int Capacity    { get; init; } 
+        public Int32 Capacity    { get; init; } 
         public DateTime Timestamp    { get; init; } 
         public string Stage    { get; init; }  = string.Empty; 
         public string SubStage    { get; init; }  = string.Empty; 
         public string InvoiceId    { get; init; }  = string.Empty; 
         public string SalesOrderId    { get; init; }  = string.Empty; 
-        public int CableLength    { get; init; } 
-        public int InspectionResult    { get; init; } 
+        public Int32 CableLength    { get; init; } 
+        public Int32 InspectionResult    { get; init; } 
         public string DefaultTestingMode    { get; init; }  = string.Empty; 
         public string ModelTypeGroupName    { get; init; }  = string.Empty; 
         public string UsedTestingMode    { get; init; }  = string.Empty; 
         public string ThermexPurcharseOrderNo    { get; init; }  = string.Empty; 
         public string MachiningPurcharseOrderNo    { get; init; }  = string.Empty; 
         public string SteelPurcharseOrderNo    { get; init; }  = string.Empty; 
-        public int BatcNo    { get; init; } 
+        public Int32 BatcNo    { get; init; } 
+        public string LoadDirection    { get; init; }  = string.Empty; 
         private  List <Test> _Tests { get;  set;}  = new List<Test>();
         public  IReadOnlyCollection<Test> Tests => _Tests;
         private  List <ProductInitialUnit> _ProductInitialUnits { get;  set;}  = new List<ProductInitialUnit>();
@@ -32,12 +33,12 @@ namespace ProductionManager.Domain.Entities
         public  IReadOnlyCollection<ProductCertificate> ProductCertificates => _ProductCertificates;
         private  List <NonConformanceLog> _NonConformanceLogs { get;  set;}  = new List<NonConformanceLog>();
         public  IReadOnlyCollection<NonConformanceLog> NonConformanceLogs => _NonConformanceLogs;
-        public ModelVersion ModelVersion    { get; init; } 
+        public ModelVersion? ModelVersion    { get; init; } 
         private  List <ProductPicture> _ProductPictures { get;  set;}  = new List<ProductPicture>();
         public  IReadOnlyCollection<ProductPicture> ProductPictures => _ProductPictures;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static Product Create(int  productId, int  modelVersionId, string  modelName, int  capacity, DateTime  timestamp, string  stage, string  subStage, string  invoiceId, string  salesOrderId, int  cableLength, int  inspectionResult, string  defaultTestingMode, string  modelTypeGroupName, string  usedTestingMode, string  thermexPurcharseOrderNo, string  machiningPurcharseOrderNo, string  steelPurcharseOrderNo, int  batcNo, Guid  guidId)
+        public static Product Create(Int32  productId, Int32  modelVersionId, string  modelName, Int32  capacity, DateTime  timestamp, string  stage, string  subStage, string  invoiceId, string  salesOrderId, Int32  cableLength, Int32  inspectionResult, string  defaultTestingMode, string  modelTypeGroupName, string  usedTestingMode, string  thermexPurcharseOrderNo, string  machiningPurcharseOrderNo, string  steelPurcharseOrderNo, Int32  batcNo, string  loadDirection, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {
@@ -63,6 +64,7 @@ namespace ProductionManager.Domain.Entities
             MachiningPurcharseOrderNo = machiningPurcharseOrderNo ,
             SteelPurcharseOrderNo = steelPurcharseOrderNo ,
             BatcNo = batcNo ,
+            LoadDirection = loadDirection ,
             GuidId = guidId ,
         };
     }

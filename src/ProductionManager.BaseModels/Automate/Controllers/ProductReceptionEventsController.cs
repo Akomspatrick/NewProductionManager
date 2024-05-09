@@ -1,16 +1,14 @@
-using ProductionManager.Api.Extentions;
-using ProductionManager.Application.CQRS;
-using ProductionManager.Contracts.RequestDTO;
-using ProductionManager.Contracts.ResponseDTO;
 using ProductionManager.Api.Extensions;
-using ProductionManager.Domain.Errors;
-using LanguageExt;
+using ProductionManager.Application.CQRS;
+using Asp.Versioning;
+using ProductionManager.Contracts.RequestDTO.V1;
+using ProductionManager.Contracts.ResponseDTO.V1;
 using MediatR;
+using ProductionManager.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Threading;
-namespace ProductionManager.Api.Controllers.v1
+namespace ProductionManager.Api.Controllers.V1
 {
+     [ApiVersion(1)]
     public  class ProductReceptionEventsController  : TheBaseController<ProductReceptionEventsController>
     {
 
@@ -25,15 +23,15 @@ namespace ProductionManager.Api.Controllers.v1
         public Task<IActionResult> GetById([FromRoute] string NameOrGuid, CancellationToken cancellationToken)
         {
             return Guid.TryParse(NameOrGuid, out Guid guid)  ?
-                (_sender.Send(new GetProductReceptionEventByGuidQuery(new ProductReceptionEventGetRequestByGuidDTO(guid)), cancellationToken)).ToActionResult404()
+                (_sender.Send(new GetProductReceptionEventByGuidQuery(new ProductReceptionEventGetRequestByGuidDTO(guid)), cancellationToken)).ToEitherActionResult()
                 :
-                (_sender.Send(new GetProductReceptionEventByIdQuery(new ProductReceptionEventGetRequestByIdDTO(NameOrGuid)), cancellationToken)).ToActionResult404();
+                (_sender.Send(new GetProductReceptionEventByIdQuery(new ProductReceptionEventGetRequestByIdDTO(NameOrGuid)), cancellationToken)).ToEitherActionResult();
         }
 
-        [ProducesResponseType(typeof(ModelTypeResponseDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProductReceptionEventResponseDTO), StatusCodes.Status200OK)]
         [HttpGet(template: ProductionManagerAPIEndPoints.ProductReceptionEvent.GetByJSONBody, Name = ProductionManagerAPIEndPoints.ProductReceptionEvent.GetByJSONBody)]
         public Task<IActionResult> GetByJSONBody([FromBody] ProductReceptionEventGetRequestDTO request, CancellationToken cancellationToken)
-                => ( _sender.Send(new GetProductReceptionEventQuery(request), cancellationToken)) .ToActionResult404();
+                => ( _sender.Send(new GetProductReceptionEventQuery(request), cancellationToken)) .ToEitherActionResult();
 
         [HttpPost(template: ProductionManagerAPIEndPoints.ProductReceptionEvent.Create, Name = ProductionManagerAPIEndPoints.ProductReceptionEvent.Create)]
         public Task<IActionResult> Create(ProductReceptionEventCreateRequestDTO request, CancellationToken cancellationToken)

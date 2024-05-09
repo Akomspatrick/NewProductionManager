@@ -6,13 +6,13 @@ namespace ProductionManager.Domain.Entities
         private ProductGaugeEvent(){}
         public string GuageModel    { get; init; }  = string.Empty; 
         public string GuageLotNo    { get; init; }  = string.Empty; 
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductGaugeEvent Create(string  guageModel, string  guageLotNo, int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductGaugeEvent Create(string  guageModel, string  guageLotNo, Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

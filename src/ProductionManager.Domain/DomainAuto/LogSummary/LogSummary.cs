@@ -9,12 +9,12 @@ namespace ProductionManager.Domain.Entities
         public DateTime StartTime    { get; init; } 
         public DateTime StopTime    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
-        public int NoOfItemsProcessed    { get; init; } 
+        public Int32 NoOfItemsProcessed    { get; init; } 
         private  List <LogDetail> _LogDetails { get;  set;}  = new List<LogDetail>();
         public  IReadOnlyCollection<LogDetail> LogDetails => _LogDetails;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static LogSummary Create(Guid  logSummaryId, string  stage, DateTime  startTime, DateTime  stopTime, string  userName, int  noOfItemsProcessed, Guid  guidId)
+        public static LogSummary Create(Guid  logSummaryId, string  stage, DateTime  startTime, DateTime  stopTime, string  userName, Int32  noOfItemsProcessed, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

@@ -4,13 +4,13 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductCablingEvent  : BaseEntity
     {
         private ProductCablingEvent(){}
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductCablingEvent Create(int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductCablingEvent Create(Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

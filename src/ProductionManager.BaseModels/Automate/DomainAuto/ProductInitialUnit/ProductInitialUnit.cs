@@ -9,7 +9,7 @@ namespace ProductionManager.Domain.Entities
         public string InputUnits    { get; init; }  = string.Empty; 
         public string OutputUnits    { get; init; }  = string.Empty; 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductInitialUnit Create(Int32  productId, DateTime  timeStamp, string  inputUnits, string  outputUnits, Guid  guidId)
     {

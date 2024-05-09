@@ -7,7 +7,7 @@ namespace ProductionManager.Domain.Entities
         public string RefStandardManufacturer    { get; init; }  = string.Empty; 
         public string RefStandardModelName    { get; init; }  = string.Empty; 
         public string RefStandardSerialNo    { get; init; }  = string.Empty; 
-        public int Capacity    { get; init; } 
+        public Int32 Capacity    { get; init; } 
         public DateTime Timestamp    { get; init; } 
         public decimal B0    { get; init; } 
         public decimal B1    { get; init; } 
@@ -18,9 +18,9 @@ namespace ProductionManager.Domain.Entities
         public  IReadOnlyCollection<ReferenceCellCalibration> ReferenceCellCalibrations => _ReferenceCellCalibrations;
         private  List <Test> _Tests { get;  set;}  = new List<Test>();
         public  IReadOnlyCollection<Test> Tests => _Tests;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static ReferenceStandard Create(string  refStandardManufacturer, string  refStandardModelName, string  refStandardSerialNo, int  capacity, DateTime  timestamp, decimal  b0, decimal  b1, decimal  b2, decimal  b3, decimal  b4, Guid  guidId)
+        public static ReferenceStandard Create(string  refStandardManufacturer, string  refStandardModelName, string  refStandardSerialNo, Int32  capacity, DateTime  timestamp, decimal  b0, decimal  b1, decimal  b2, decimal  b3, decimal  b4, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

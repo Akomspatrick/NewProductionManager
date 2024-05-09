@@ -18,7 +18,7 @@ namespace ProductionManager.Domain.Entities
         public  IReadOnlyCollection<ReferenceCellCalibration> ReferenceCellCalibrations => _ReferenceCellCalibrations;
         private  List <Test> _Tests { get;  set;}  = new List<Test>();
         public  IReadOnlyCollection<Test> Tests => _Tests;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ReferenceStandard Create(string  refStandardManufacturer, string  refStandardModelName, string  refStandardSerialNo, Int32  capacity, DateTime  timestamp, decimal  b0, decimal  b1, decimal  b2, decimal  b3, decimal  b4, Guid  guidId)
     {

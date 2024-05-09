@@ -10,7 +10,7 @@ namespace ProductionManager.Domain.Entities
         public  IReadOnlyCollection<ProductFinalVerifiationEvent> ProductFinalVerifiationEvents => _ProductFinalVerifiationEvents;
         private  List <ProductInitialVerificationEvent> _ProductInitialVerificationEvents { get;  set;}  = new List<ProductInitialVerificationEvent>();
         public  IReadOnlyCollection<ProductInitialVerificationEvent> ProductInitialVerificationEvents => _ProductInitialVerificationEvents;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static Tester Create(string  testerName, Int32  nistTraceAble, Guid  guidId)
     {

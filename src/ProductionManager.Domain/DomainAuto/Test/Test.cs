@@ -5,7 +5,7 @@ namespace ProductionManager.Domain.Entities
     {
         private Test(){}
         public DateTime Timestamp    { get; init; } 
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public string RefStandardSerialNo    { get; init; }  = string.Empty; 
         public string RefStandardManufacturer    { get; init; }  = string.Empty; 
@@ -14,9 +14,9 @@ namespace ProductionManager.Domain.Entities
         public decimal SignalResistance    { get; init; } 
         public Product Product    { get; init; } 
         public ReferenceStandard ReferenceStandard    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static Test Create(DateTime  timestamp, int  productId, string  userName, string  refStandardSerialNo, string  refStandardManufacturer, string  refStandardModelName, decimal  excitationResistance, decimal  signalResistance, Guid  guidId)
+        public static Test Create(DateTime  timestamp, Int32  productId, string  userName, string  refStandardSerialNo, string  refStandardManufacturer, string  refStandardModelName, decimal  excitationResistance, decimal  signalResistance, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

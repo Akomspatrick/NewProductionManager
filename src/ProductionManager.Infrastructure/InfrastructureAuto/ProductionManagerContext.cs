@@ -1,17 +1,16 @@
 using ProductionManager.Domain.Entities;
-using ProductionManager.Domain.Entities.Base;
 using ProductionManager.Domain.Utils;
 using ProductionManager.Infrastructure.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using ProductionManager.DomainBase;
 namespace ProductionManager.Infrastructure.Persistence
 {
-    public class ProductionManagerContext : DbContext
+    public class ProductionManagerContext :   DbContext
     {
         private readonly IConfiguration _configuration;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+        if (optionsBuilder.IsConfigured) return;
             var constr = GetConnectionstringName.GetConnectionStrName(Environment.MachineName);
             var conn = _configuration.GetConnectionString(constr);
             optionsBuilder.UseMySql(conn!, GeneralUtils.GetMySqlVersion());
@@ -63,37 +62,5 @@ namespace ProductionManager.Infrastructure.Persistence
         public DbSet<Test> Tests { get; private set; }
         public DbSet<Tester> Testers { get; private set; }
         public DbSet<TrimmingResistor> TrimmingResistors { get; private set; }
-
-
-    //    public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, System.Threading.CancellationToken cancellationToken = default)
-    //    {
-    //        foreach (var entry in ChangeTracker.Entries())
-    //        {
-    //            if (entry.Entity is BaseEvent entity)
-    //            {
-    //                switch (entry.State)
-    //                {
-    //                    case EntityState.Added:
-                            
-    //                        entity.GuidId= Guid.NewGuid();
-    //                        break;
-    //                    case EntityState.Modified:
-    //                        //entity.ModifiedDate = System.DateTime.Now;
-    //                        break;
-    //                }
-    //            }
-
-    //        }
-    //        foreach (var entry in ChangeTracker.Entries())
-    //        {
-    //            if (entry.Entity.GetType().Name.Contains("Event") && (entry.Entity is BaseEntity entity))
-    //            {
-    //                entity.GuidId = Guid.NewGuid();
-    //                entity. = DateTime.Now;
-
-    //            }
-    //        }
-    //        return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-    //    }
-    //}
+    }
 }

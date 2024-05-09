@@ -4,7 +4,7 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductPicture  : BaseEntity
     {
         private ProductPicture(){}
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public DateTime Timestamp    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public string Stage    { get; init; }  = string.Empty; 
@@ -13,9 +13,9 @@ namespace ProductionManager.Domain.Entities
         public string BasePath    { get; init; }  = string.Empty; 
         public string Description    { get; init; }  = string.Empty; 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static ProductPicture Create(int  productId, DateTime  timestamp, string  userName, string  stage, string  fileName, string  localPathName, string  basePath, string  description, Guid  guidId)
+        public static ProductPicture Create(Int32  productId, DateTime  timestamp, string  userName, string  stage, string  fileName, string  localPathName, string  basePath, string  description, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

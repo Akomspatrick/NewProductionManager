@@ -12,7 +12,7 @@ namespace ProductionManager.Domain.Entities
         public Int32 Capacity    { get; init; } 
         public Product Product    { get; init; } 
         public ProductCertificateType ProductCertificateType    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductCertificate Create(Int32  productCertificateId, Int32  productId, string  certifcateType, string  jsonData, DateTime  timestamp, Int32  capacity, Guid  guidId)
     {

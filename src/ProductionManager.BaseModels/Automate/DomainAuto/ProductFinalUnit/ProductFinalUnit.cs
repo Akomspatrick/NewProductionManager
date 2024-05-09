@@ -17,7 +17,7 @@ namespace ProductionManager.Domain.Entities
         public decimal LowWeight    { get; init; } 
         public decimal HighWeight    { get; init; } 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductFinalUnit Create(Int32  productId, DateTime  timeStamp, string  inputUnit, string  ouputUnits, string  indicatorType, Int32  indicatorChannel, string  indicatorSerialNo, Int32  gradSize, decimal  pinSize, Int32  division, decimal  lowWeight, decimal  highWeight, Guid  guidId)
     {

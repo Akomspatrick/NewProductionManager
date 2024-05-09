@@ -4,15 +4,15 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductSurfacePreparationEvent  : BaseEntity
     {
         private ProductSurfacePreparationEvent(){}
-        public int InspectionResult    { get; init; } 
+        public Int32 InspectionResult    { get; init; } 
         public string DefectName    { get; init; }  = string.Empty; 
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductSurfacePreparationEvent Create(int  inspectionResult, string  defectName, int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductSurfacePreparationEvent Create(Int32  inspectionResult, string  defectName, Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

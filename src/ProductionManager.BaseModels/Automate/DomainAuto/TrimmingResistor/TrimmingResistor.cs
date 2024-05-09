@@ -5,7 +5,7 @@ namespace ProductionManager.Domain.Entities
     {
         private TrimmingResistor(){}
         public decimal Value    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static TrimmingResistor Create(decimal  value, Guid  guidId)
     {

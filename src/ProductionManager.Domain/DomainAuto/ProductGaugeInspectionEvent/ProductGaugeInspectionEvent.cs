@@ -4,17 +4,17 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductGaugeInspectionEvent  : BaseEntity
     {
         private ProductGaugeInspectionEvent(){}
-        public int InspectionResult    { get; init; } 
+        public Int32 InspectionResult    { get; init; } 
         public string DefectName    { get; init; }  = string.Empty; 
-        public int GaugeFailed    { get; init; } 
-        public int GaugePassed    { get; init; } 
-        public int ProductId    { get; init; } 
+        public Int32 GaugeFailed    { get; init; } 
+        public Int32 GaugePassed    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductGaugeInspectionEvent Create(int  inspectionResult, string  defectName, int  gaugeFailed, int  gaugePassed, int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductGaugeInspectionEvent Create(Int32  inspectionResult, string  defectName, Int32  gaugeFailed, Int32  gaugePassed, Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

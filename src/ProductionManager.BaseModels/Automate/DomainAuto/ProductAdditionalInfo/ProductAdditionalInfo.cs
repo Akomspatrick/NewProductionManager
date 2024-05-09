@@ -9,7 +9,7 @@ namespace ProductionManager.Domain.Entities
         public decimal InputVoltage    { get; init; } 
         public decimal CableLenght    { get; init; } 
         public string CableLenghtUnit    { get; init; }  = string.Empty; 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductAdditionalInfo Create(Int32  productAdditionalInfoId, Int32  productId, decimal  inputVoltage, decimal  cableLenght, string  cableLenghtUnit, Guid  guidId)
     {

@@ -1,16 +1,14 @@
-using ProductionManager.Api.Extentions;
-using ProductionManager.Application.CQRS;
-using ProductionManager.Contracts.RequestDTO;
-using ProductionManager.Contracts.ResponseDTO;
 using ProductionManager.Api.Extensions;
-using ProductionManager.Domain.Errors;
-using LanguageExt;
+using ProductionManager.Application.CQRS;
+using Asp.Versioning;
+using ProductionManager.Contracts.RequestDTO.V1;
+using ProductionManager.Contracts.ResponseDTO.V1;
 using MediatR;
+using ProductionManager.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Threading;
-namespace ProductionManager.Api.Controllers.v1
+namespace ProductionManager.Api.Controllers.V1
 {
+     [ApiVersion(1)]
     public  class TestersController  : TheBaseController<TestersController>
     {
 
@@ -25,15 +23,15 @@ namespace ProductionManager.Api.Controllers.v1
         public Task<IActionResult> GetById([FromRoute] string NameOrGuid, CancellationToken cancellationToken)
         {
             return Guid.TryParse(NameOrGuid, out Guid guid)  ?
-                (_sender.Send(new GetTesterByGuidQuery(new TesterGetRequestByGuidDTO(guid)), cancellationToken)).ToActionResult404()
+                (_sender.Send(new GetTesterByGuidQuery(new TesterGetRequestByGuidDTO(guid)), cancellationToken)).ToEitherActionResult()
                 :
-                (_sender.Send(new GetTesterByIdQuery(new TesterGetRequestByIdDTO(NameOrGuid)), cancellationToken)).ToActionResult404();
+                (_sender.Send(new GetTesterByIdQuery(new TesterGetRequestByIdDTO(NameOrGuid)), cancellationToken)).ToEitherActionResult();
         }
 
-        [ProducesResponseType(typeof(ModelTypeResponseDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TesterResponseDTO), StatusCodes.Status200OK)]
         [HttpGet(template: ProductionManagerAPIEndPoints.Tester.GetByJSONBody, Name = ProductionManagerAPIEndPoints.Tester.GetByJSONBody)]
         public Task<IActionResult> GetByJSONBody([FromBody] TesterGetRequestDTO request, CancellationToken cancellationToken)
-                => ( _sender.Send(new GetTesterQuery(request), cancellationToken)) .ToActionResult404();
+                => ( _sender.Send(new GetTesterQuery(request), cancellationToken)) .ToEitherActionResult();
 
         [HttpPost(template: ProductionManagerAPIEndPoints.Tester.Create, Name = ProductionManagerAPIEndPoints.Tester.Create)]
         public Task<IActionResult> Create(TesterCreateRequestDTO request, CancellationToken cancellationToken)

@@ -8,7 +8,7 @@ namespace ProductionManager.Domain.Entities
         public string Description    { get; init; }  = string.Empty; 
         private  List <ProductCertificate> _ProductCertificates { get;  set;}  = new List<ProductCertificate>();
         public  IReadOnlyCollection<ProductCertificate> ProductCertificates => _ProductCertificates;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductCertificateType Create(string  certifcateType, string  description, Guid  guidId)
     {

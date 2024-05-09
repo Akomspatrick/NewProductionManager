@@ -4,22 +4,22 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductFinalUnit  : BaseEntity
     {
         private ProductFinalUnit(){}
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public DateTime TimeStamp    { get; init; } 
         public string InputUnit    { get; init; }  = string.Empty; 
         public string OuputUnits    { get; init; }  = string.Empty; 
         public string IndicatorType    { get; init; }  = string.Empty; 
-        public int IndicatorChannel    { get; init; } 
+        public Int32 IndicatorChannel    { get; init; } 
         public string IndicatorSerialNo    { get; init; }  = string.Empty; 
-        public int GradSize    { get; init; } 
+        public Int32 GradSize    { get; init; } 
         public decimal PinSize    { get; init; } 
-        public int Division    { get; init; } 
+        public Int32 Division    { get; init; } 
         public decimal LowWeight    { get; init; } 
         public decimal HighWeight    { get; init; } 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static ProductFinalUnit Create(int  productId, DateTime  timeStamp, string  inputUnit, string  ouputUnits, string  indicatorType, int  indicatorChannel, string  indicatorSerialNo, int  gradSize, decimal  pinSize, int  division, decimal  lowWeight, decimal  highWeight, Guid  guidId)
+        public static ProductFinalUnit Create(Int32  productId, DateTime  timeStamp, string  inputUnit, string  ouputUnits, string  indicatorType, Int32  indicatorChannel, string  indicatorSerialNo, Int32  gradSize, decimal  pinSize, Int32  division, decimal  lowWeight, decimal  highWeight, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

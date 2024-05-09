@@ -225,7 +225,7 @@ namespace ProductionManager.Infrastructure.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
-                    b.Property<int>("DefaultCableLength")
+                    b.Property<int?>("DefaultCableLength")
                         .HasColumnType("int");
 
                     b.Property<string>("DefaultTestingMode")
@@ -236,7 +236,7 @@ namespace ProductionManager.Infrastructure.Migrations
                     b.Property<Guid>("GuidId")
                         .HasColumnType("char(36)");
 
-                    b.Property<int>("MinimumDeadLoad")
+                    b.Property<int?>("MinimumDeadLoad")
                         .HasColumnType("int");
 
                     b.Property<string>("ModelVersionGroupName")
@@ -254,7 +254,7 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<DateTime>("NTEPCertificationTimestamp")
+                    b.Property<DateTime?>("NTEPCertificationTimestamp")
                         .HasColumnType("datetime(6)");
 
                     b.Property<decimal>("NominalOutput")
@@ -269,7 +269,7 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasPrecision(18, 6)
                         .HasColumnType("decimal(18,6)");
 
-                    b.Property<int>("NumberOfGauges")
+                    b.Property<int?>("NumberOfGauges")
                         .HasColumnType("int");
 
                     b.Property<string>("OIMLCertificationId")
@@ -277,13 +277,13 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<DateTime>("OIMLCertificationTimestamp")
+                    b.Property<DateTime?>("OIMLCertificationTimestamp")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("Resistance")
+                    b.Property<int?>("Resistance")
                         .HasColumnType("int");
 
-                    b.Property<int>("SafeLoad")
+                    b.Property<int?>("SafeLoad")
                         .HasColumnType("int");
 
                     b.Property<string>("ShellMaterialName")
@@ -291,10 +291,10 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<int>("TemperingHardnessHigh")
+                    b.Property<int?>("TemperingHardnessHigh")
                         .HasColumnType("int");
 
-                    b.Property<int>("TemperingHardnessLow")
+                    b.Property<int?>("TemperingHardnessLow")
                         .HasColumnType("int");
 
                     b.Property<bool>("TestPointDirection")
@@ -303,7 +303,7 @@ namespace ProductionManager.Infrastructure.Migrations
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("UltimateLoad")
+                    b.Property<int?>("UltimateLoad")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -319,7 +319,7 @@ namespace ProductionManager.Infrastructure.Migrations
                     b.Property<int?>("nMax")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("vMin")
+                    b.Property<decimal>("vMin")
                         .HasPrecision(11, 1)
                         .HasColumnType("decimal(11,1)");
 
@@ -418,6 +418,11 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("InvoiceId")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<string>("LoadDirection")
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");

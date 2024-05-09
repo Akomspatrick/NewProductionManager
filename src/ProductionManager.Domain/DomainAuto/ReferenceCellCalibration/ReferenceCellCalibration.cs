@@ -4,7 +4,7 @@ namespace ProductionManager.Domain.Entities
     public partial class ReferenceCellCalibration  : BaseEntity
     {
         private ReferenceCellCalibration(){}
-        public int Weight    { get; init; } 
+        public Int32 Weight    { get; init; } 
         public string RefStandardManufacturer    { get; init; }  = string.Empty; 
         public string RefStandardModelName    { get; init; }  = string.Empty; 
         public string RefStandardSerialNo    { get; init; }  = string.Empty; 
@@ -13,9 +13,9 @@ namespace ProductionManager.Domain.Entities
         public decimal HighMeasuredPosition    { get; init; } 
         public decimal HighCurrent    { get; init; } 
         public ReferenceStandard ReferenceStandard    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static ReferenceCellCalibration Create(int  weight, string  refStandardManufacturer, string  refStandardModelName, string  refStandardSerialNo, decimal  lowMeasuredPosition, decimal  lowCurrent, decimal  highMeasuredPosition, decimal  highCurrent, Guid  guidId)
+        public static ReferenceCellCalibration Create(Int32  weight, string  refStandardManufacturer, string  refStandardModelName, string  refStandardSerialNo, decimal  lowMeasuredPosition, decimal  lowCurrent, decimal  highMeasuredPosition, decimal  highCurrent, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

@@ -7,13 +7,13 @@ namespace ProductionManager.Domain.Entities
         public string SourceStage    { get; init; }  = string.Empty; 
         public string DestinationStage    { get; init; }  = string.Empty; 
         public string MovingNotes    { get; init; }  = string.Empty; 
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductMovingEvent Create(string  sourceStage, string  destinationStage, string  movingNotes, int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductMovingEvent Create(string  sourceStage, string  destinationStage, string  movingNotes, Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

@@ -7,7 +7,7 @@ namespace ProductionManager.Domain.Entities
         public Int32 ProductId    { get; init; } 
         public Guid LogSummaryId    { get; init; } 
         public LogSummary LogSummary    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static LogDetail Create(Int32  productId, Guid  logSummaryId, Guid  guidId)
     {

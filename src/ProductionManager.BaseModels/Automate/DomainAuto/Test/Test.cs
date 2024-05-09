@@ -14,7 +14,7 @@ namespace ProductionManager.Domain.Entities
         public decimal SignalResistance    { get; init; } 
         public Product Product    { get; init; } 
         public ReferenceStandard ReferenceStandard    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static Test Create(DateTime  timestamp, Int32  productId, string  userName, string  refStandardSerialNo, string  refStandardManufacturer, string  refStandardModelName, decimal  excitationResistance, decimal  signalResistance, Guid  guidId)
     {

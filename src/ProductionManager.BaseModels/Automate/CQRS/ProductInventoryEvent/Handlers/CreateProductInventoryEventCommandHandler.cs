@@ -1,0 +1,26 @@
+using ProductionManager.Domain.Interfaces;
+using Microsoft.Extensions.Logging;
+using LanguageExt;
+using MediatR;
+using ProductionManager.Domain.Errors;
+namespace ProductionManager.Application.CQRS
+{
+    public  class CreateProductInventoryEventCommandHandler  :  IRequestHandler<CreateProductInventoryEventCommand, Either<GeneralFailure, Guid>>
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger<CreateProductInventoryEventCommandHandler> _logger;
+        public IProductInventoryEventRepository _productInventoryEventRepository ;
+        public CreateProductInventoryEventCommandHandler(IUnitOfWork unitOfWork, ILogger<CreateProductInventoryEventCommandHandler> logger, IProductInventoryEventRepository productInventoryEventRepository )
+        {
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _productInventoryEventRepository = productInventoryEventRepository  ?? throw new ArgumentNullException(nameof(productInventoryEventRepository ));
+        }
+
+        public async Task<Either<GeneralFailure, Guid>> Handle(CreateProductInventoryEventCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+            //Follow the format below , initial the entity variable by calling the entity Create method;
+        }//var entity =null; Domain.Entities.ProductInventoryEvent.Create(request.productInventoryEventCreateDTO.ProductInventoryEventName, request.productInventoryEventCreateDTO.Value.GuidId);return ( await  _productInventoryEventRepository.AddAsync(entity, cancellationToken)). Map((x) =>  entity.GuidId);
+    }
+}

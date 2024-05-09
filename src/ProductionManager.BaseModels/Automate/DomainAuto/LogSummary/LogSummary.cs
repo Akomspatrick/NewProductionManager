@@ -12,7 +12,7 @@ namespace ProductionManager.Domain.Entities
         public Int32 NoOfItemsProcessed    { get; init; } 
         private  List <LogDetail> _LogDetails { get;  set;}  = new List<LogDetail>();
         public  IReadOnlyCollection<LogDetail> LogDetails => _LogDetails;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static LogSummary Create(Guid  logSummaryId, string  stage, DateTime  startTime, DateTime  stopTime, string  userName, Int32  noOfItemsProcessed, Guid  guidId)
     {

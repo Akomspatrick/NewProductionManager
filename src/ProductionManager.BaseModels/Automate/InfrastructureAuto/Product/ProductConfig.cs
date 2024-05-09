@@ -18,6 +18,7 @@ namespace ProductionManager.Infrastructure.Persistence.EntitiesConfig
             entity.Property(e => e.ThermexPurcharseOrderNo).HasMaxLength(32); 
             entity.Property(e => e.MachiningPurcharseOrderNo).HasMaxLength(32); 
             entity.Property(e => e.SteelPurcharseOrderNo).HasMaxLength(32); 
+            entity.Property(e => e.LoadDirection).HasMaxLength(32); 
             entity.HasOne<ModelVersion>(e => e.ModelVersion).WithMany(ad => ad.Products).HasForeignKey(e => new {e.ModelVersionId,e.ModelName});
         }
     }

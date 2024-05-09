@@ -4,13 +4,13 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductShippingEvent  : BaseEntity
     {
         private ProductShippingEvent(){}
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductShippingEvent Create(int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductShippingEvent Create(Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

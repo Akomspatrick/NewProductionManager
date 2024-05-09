@@ -13,7 +13,7 @@ namespace ProductionManager.Domain.Entities
         public decimal HighMeasuredPosition    { get; init; } 
         public decimal HighCurrent    { get; init; } 
         public ReferenceStandard ReferenceStandard    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ReferenceCellCalibration Create(Int32  weight, string  refStandardManufacturer, string  refStandardModelName, string  refStandardSerialNo, decimal  lowMeasuredPosition, decimal  lowCurrent, decimal  highMeasuredPosition, decimal  highCurrent, Guid  guidId)
     {

@@ -4,12 +4,12 @@ namespace ProductionManager.Domain.Entities
     public partial class LogDetail  : BaseEntity
     {
         private LogDetail(){}
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Guid LogSummaryId    { get; init; } 
         public LogSummary LogSummary    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static LogDetail Create(int  productId, Guid  logSummaryId, Guid  guidId)
+        public static LogDetail Create(Int32  productId, Guid  logSummaryId, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

@@ -1,16 +1,14 @@
-using ProductionManager.Api.Extentions;
-using ProductionManager.Application.CQRS;
-using ProductionManager.Contracts.RequestDTO;
-using ProductionManager.Contracts.ResponseDTO;
 using ProductionManager.Api.Extensions;
-using ProductionManager.Domain.Errors;
-using LanguageExt;
+using ProductionManager.Application.CQRS;
+using Asp.Versioning;
+using ProductionManager.Contracts.RequestDTO.V1;
+using ProductionManager.Contracts.ResponseDTO.V1;
 using MediatR;
+using ProductionManager.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Threading;
-namespace ProductionManager.Api.Controllers.v1
+namespace ProductionManager.Api.Controllers.V1
 {
+     [ApiVersion(1)]
     public  class ProductCertificatesController  : TheBaseController<ProductCertificatesController>
     {
 
@@ -25,15 +23,15 @@ namespace ProductionManager.Api.Controllers.v1
         public Task<IActionResult> GetById([FromRoute] string NameOrGuid, CancellationToken cancellationToken)
         {
             return Guid.TryParse(NameOrGuid, out Guid guid)  ?
-                (_sender.Send(new GetProductCertificateByGuidQuery(new ProductCertificateGetRequestByGuidDTO(guid)), cancellationToken)).ToActionResult404()
+                (_sender.Send(new GetProductCertificateByGuidQuery(new ProductCertificateGetRequestByGuidDTO(guid)), cancellationToken)).ToEitherActionResult()
                 :
-                (_sender.Send(new GetProductCertificateByIdQuery(new ProductCertificateGetRequestByIdDTO(NameOrGuid)), cancellationToken)).ToActionResult404();
+                (_sender.Send(new GetProductCertificateByIdQuery(new ProductCertificateGetRequestByIdDTO(NameOrGuid)), cancellationToken)).ToEitherActionResult();
         }
 
-        [ProducesResponseType(typeof(ModelTypeResponseDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProductCertificateResponseDTO), StatusCodes.Status200OK)]
         [HttpGet(template: ProductionManagerAPIEndPoints.ProductCertificate.GetByJSONBody, Name = ProductionManagerAPIEndPoints.ProductCertificate.GetByJSONBody)]
         public Task<IActionResult> GetByJSONBody([FromBody] ProductCertificateGetRequestDTO request, CancellationToken cancellationToken)
-                => ( _sender.Send(new GetProductCertificateQuery(request), cancellationToken)) .ToActionResult404();
+                => ( _sender.Send(new GetProductCertificateQuery(request), cancellationToken)) .ToEitherActionResult();
 
         [HttpPost(template: ProductionManagerAPIEndPoints.ProductCertificate.Create, Name = ProductionManagerAPIEndPoints.ProductCertificate.Create)]
         public Task<IActionResult> Create(ProductCertificateCreateRequestDTO request, CancellationToken cancellationToken)

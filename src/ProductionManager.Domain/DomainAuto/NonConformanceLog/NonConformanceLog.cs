@@ -4,10 +4,10 @@ namespace ProductionManager.Domain.Entities
     public partial class NonConformanceLog  : BaseEntity
     {
         private NonConformanceLog(){}
-        public int ProductId    { get; init; } 
-        public int ModelVersionId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
+        public Int32 ModelVersionId    { get; init; } 
         public string ModelName    { get; init; }  = string.Empty; 
-        public int BatcNo    { get; init; } 
+        public Int32 BatcNo    { get; init; } 
         public string Stage    { get; init; }  = string.Empty; 
         public DateTime WhenItOccurred    { get; init; } 
         public string DefectName    { get; init; }  = string.Empty; 
@@ -18,9 +18,9 @@ namespace ProductionManager.Domain.Entities
         public string ResolvedByUserName    { get; init; }  = string.Empty; 
         public string Comment    { get; init; }  = string.Empty; 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static NonConformanceLog Create(int  productId, int  modelVersionId, string  modelName, int  batcNo, string  stage, DateTime  whenItOccurred, string  defectName, string  logByUserName, string  status, string  solution, DateTime  whenItWasResolved, string  resolvedByUserName, string  comment, Guid  guidId)
+        public static NonConformanceLog Create(Int32  productId, Int32  modelVersionId, string  modelName, Int32  batcNo, string  stage, DateTime  whenItOccurred, string  defectName, string  logByUserName, string  status, string  solution, DateTime  whenItWasResolved, string  resolvedByUserName, string  comment, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

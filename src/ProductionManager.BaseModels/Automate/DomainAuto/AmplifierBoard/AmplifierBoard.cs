@@ -17,7 +17,7 @@ namespace ProductionManager.Domain.Entities
         public string WhiteValue    { get; init; }  = string.Empty; 
         public Int32 HasShield    { get; init; } 
         public string ShieldValue    { get; init; }  = string.Empty; 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static AmplifierBoard Create(Int32  amplifierBoardId, string  brand, string  name, Int32  hasRed, string  redValue, Int32  hasGreen, string  greenValue, Int32  hasBlack, string  blackValue, Int32  hasWhite, string  whiteValue, Int32  hasShield, string  shieldValue, Guid  guidId)
     {

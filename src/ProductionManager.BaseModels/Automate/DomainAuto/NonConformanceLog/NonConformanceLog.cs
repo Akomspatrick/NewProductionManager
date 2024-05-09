@@ -18,7 +18,7 @@ namespace ProductionManager.Domain.Entities
         public string ResolvedByUserName    { get; init; }  = string.Empty; 
         public string Comment    { get; init; }  = string.Empty; 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static NonConformanceLog Create(Int32  productId, Int32  modelVersionId, string  modelName, Int32  batcNo, string  stage, DateTime  whenItOccurred, string  defectName, string  logByUserName, string  status, string  solution, DateTime  whenItWasResolved, string  resolvedByUserName, string  comment, Guid  guidId)
     {

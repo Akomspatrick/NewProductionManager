@@ -13,7 +13,7 @@ namespace ProductionManager.Domain.Entities
         public string BasePath    { get; init; }  = string.Empty; 
         public string Description    { get; init; }  = string.Empty; 
         public Product Product    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductPicture Create(Int32  productId, DateTime  timestamp, string  userName, string  stage, string  fileName, string  localPathName, string  basePath, string  description, Guid  guidId)
     {

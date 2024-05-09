@@ -22,6 +22,7 @@ namespace ProductionManager.Domain.Entities
         public string MachiningPurcharseOrderNo    { get; init; }  = string.Empty; 
         public string SteelPurcharseOrderNo    { get; init; }  = string.Empty; 
         public Int32 BatcNo    { get; init; } 
+        public string LoadDirection    { get; init; }  = string.Empty; 
         private  List <Test> _Tests { get;  set;}  = new List<Test>();
         public  IReadOnlyCollection<Test> Tests => _Tests;
         private  List <ProductInitialUnit> _ProductInitialUnits { get;  set;}  = new List<ProductInitialUnit>();
@@ -35,9 +36,9 @@ namespace ProductionManager.Domain.Entities
         public ModelVersion? ModelVersion    { get; init; } 
         private  List <ProductPicture> _ProductPictures { get;  set;}  = new List<ProductPicture>();
         public  IReadOnlyCollection<ProductPicture> ProductPictures => _ProductPictures;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static Product Create(Int32  productId, Int32  modelVersionId, string  modelName, Int32  capacity, DateTime  timestamp, string  stage, string  subStage, string  invoiceId, string  salesOrderId, Int32  cableLength, Int32  inspectionResult, string  defaultTestingMode, string  modelTypeGroupName, string  usedTestingMode, string  thermexPurcharseOrderNo, string  machiningPurcharseOrderNo, string  steelPurcharseOrderNo, Int32  batcNo, Guid  guidId)
+        public static Product Create(Int32  productId, Int32  modelVersionId, string  modelName, Int32  capacity, DateTime  timestamp, string  stage, string  subStage, string  invoiceId, string  salesOrderId, Int32  cableLength, Int32  inspectionResult, string  defaultTestingMode, string  modelTypeGroupName, string  usedTestingMode, string  thermexPurcharseOrderNo, string  machiningPurcharseOrderNo, string  steelPurcharseOrderNo, Int32  batcNo, string  loadDirection, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {
@@ -63,6 +64,7 @@ namespace ProductionManager.Domain.Entities
             MachiningPurcharseOrderNo = machiningPurcharseOrderNo ,
             SteelPurcharseOrderNo = steelPurcharseOrderNo ,
             BatcNo = batcNo ,
+            LoadDirection = loadDirection ,
             GuidId = guidId ,
         };
     }

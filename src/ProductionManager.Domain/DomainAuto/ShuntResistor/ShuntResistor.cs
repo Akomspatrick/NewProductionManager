@@ -5,7 +5,7 @@ namespace ProductionManager.Domain.Entities
     {
         private ShuntResistor(){}
         public decimal Value    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ShuntResistor Create(decimal  value, Guid  guidId)
     {

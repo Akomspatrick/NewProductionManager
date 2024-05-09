@@ -2,47 +2,7 @@ namespace ProductionManager.Api
 {
     public static class ProductionManagerAPIEndPoints
     {
-        public const string APIBase = "api";
-        public static class MassfussionFunction
-        {
-            public const string Controller = "MassfussionFunctions";
-            public const string Create = $"{APIBase}/{Controller}";
-            public const string Delete = $"{APIBase}/{Controller}/{{request}}";
-            public const string GetById = $"{APIBase}/{Controller}/{{NameOrGuid}}";
-            public const string GetByJSONBody = $"{APIBase}/{Controller}/JsonBody";
-            public const string Get = $"{APIBase}/{Controller}";
-            public const string Update = $"{APIBase}/{Controller}";
-        }
-        public static class MassLoadApplication
-        {
-            public const string Controller = "MassLoadApplications";
-            public const string Create = $"{APIBase}/{Controller}";
-            public const string Delete = $"{APIBase}/{Controller}/{{request}}";
-            public const string GetById = $"{APIBase}/{Controller}/{{NameOrGuid}}";
-            public const string GetByJSONBody = $"{APIBase}/{Controller}/JsonBody";
-            public const string Get = $"{APIBase}/{Controller}";
-            public const string Update = $"{APIBase}/{Controller}";
-        }
-        public static class RefreshToken
-        {
-            public const string Controller = "RefreshTokens";
-            public const string Create = $"{APIBase}/{Controller}";
-            public const string Delete = $"{APIBase}/{Controller}/{{request}}";
-            public const string GetById = $"{APIBase}/{Controller}/{{NameOrGuid}}";
-            public const string GetByJSONBody = $"{APIBase}/{Controller}/JsonBody";
-            public const string Get = $"{APIBase}/{Controller}";
-            public const string Update = $"{APIBase}/{Controller}";
-        }
-        public static class UsersGroup
-        {
-            public const string Controller = "UsersGroups";
-            public const string Create = $"{APIBase}/{Controller}";
-            public const string Delete = $"{APIBase}/{Controller}/{{request}}";
-            public const string GetById = $"{APIBase}/{Controller}/{{NameOrGuid}}";
-            public const string GetByJSONBody = $"{APIBase}/{Controller}/JsonBody";
-            public const string Get = $"{APIBase}/{Controller}";
-            public const string Update = $"{APIBase}/{Controller}";
-        }
+        public const string APIBase = "api/v{version:apiVersion}";
         public static class AmplifierBoard
         {
             public const string Controller = "AmplifierBoards";

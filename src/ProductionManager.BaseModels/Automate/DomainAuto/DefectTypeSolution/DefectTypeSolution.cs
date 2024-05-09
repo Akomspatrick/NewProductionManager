@@ -10,7 +10,7 @@ namespace ProductionManager.Domain.Entities
         public DateTime Timestamp    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DefectType DefectType    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static DefectTypeSolution Create(string  defectName, string  stage, string  solution, DateTime  timestamp, string  userName, Guid  guidId)
     {

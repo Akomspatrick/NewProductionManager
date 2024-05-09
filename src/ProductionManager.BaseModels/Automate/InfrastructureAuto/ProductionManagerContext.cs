@@ -5,11 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 namespace ProductionManager.Infrastructure.Persistence
 {
-    public class ProductionManagerContext : DbContext
+    public class ProductionManagerContext :   DbContext
     {
         private readonly IConfiguration _configuration;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+        if (optionsBuilder.IsConfigured) return;
             var constr = GetConnectionstringName.GetConnectionStrName(Environment.MachineName);
             var conn = _configuration.GetConnectionString(constr);
             optionsBuilder.UseMySql(conn!, GeneralUtils.GetMySqlVersion());
@@ -24,10 +25,6 @@ namespace ProductionManager.Infrastructure.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductionManagerContext).Assembly);
         }
         
-        public DbSet<MassfussionFunction> MassfussionFunctions { get; private set; }
-        public DbSet<MassLoadApplication> MassLoadApplications { get; private set; }
-        public DbSet<RefreshToken> RefreshTokens { get; private set; }
-        public DbSet<UsersGroup> UsersGroups { get; private set; }
         public DbSet<AmplifierBoard> AmplifierBoards { get; private set; }
         public DbSet<DefectType> DefectTypes { get; private set; }
         public DbSet<DefectTypeSolution> DefectTypeSolutions { get; private set; }

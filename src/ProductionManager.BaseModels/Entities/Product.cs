@@ -20,19 +20,21 @@ namespace ProductionManager.BaseModels.Entities
         public required string ModelName { get; init; } = string.Empty;
 
         public required int Capacity { get; init; }
+        public required int TestCapacity { get; init; }
+
         public required DateTime Timestamp { get; init; }
 
 
         public required string Stage { get; init; } = string.Empty;
 
-        public string SubStage { get; init; } = string.Empty;
+        //public string SubStage { get; init; } = string.Empty;
 
         public string InvoiceId { get; init; } = string.Empty;
         public string SalesOrderId { get; init; } = string.Empty;
 
         public required int CableLength { get; init; } = 0;
         public required int InspectionResult { get; init; } = 0;
-        public string DefaultTestingMode { get; init; } = string.Empty; // Manual, Automatic from the Model Type
+        public string TestingMode { get; init; } = string.Empty; // Manual, Automatic from the Model Type
         public string ModelTypeGroupName { get; init; } = string.Empty;// DefaultTestingMode and ModelTypeGroupName should be taken from the ModelTypeGroup via ModelType
         public string UsedTestingMode { get; init; } = string.Empty; // default to aboveManual, Automatic from the Model Type
         public string ThermexPurcharseOrderNo { get; init; } = string.Empty;//stage

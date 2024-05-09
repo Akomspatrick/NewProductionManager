@@ -14,7 +14,7 @@ namespace ProductionManager.Domain.Entities
         public  IReadOnlyCollection<Product> Products => _Products;
         private  List <DefectType> _DefectTypes { get;  set;}  = new List<DefectType>();
         public  IReadOnlyCollection<DefectType> DefectTypes => _DefectTypes;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ProductStage Create(string  stage, string  stageDescription, Int32  stageNo, string  stageBarcode, string  saveBarCode, string  saveAndEndBarCode, Guid  guidId)
     {

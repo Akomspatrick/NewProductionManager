@@ -38,7 +38,7 @@ namespace ProductionManager.Domain.Entities
         public string OIMLCertificationId    { get; init; }  = string.Empty; 
         public DateTime? OIMLCertificationTimestamp    { get; init; } 
         public bool TestPointDirection    { get; init; } 
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
         public static ModelVersion Create(Int32  modelVersionId, string  versionDescription, string  modelVersionName, string  modelName, string  modelVersionGroupName, string  defaultTestingMode, DateTime  timestamp, string  userName, Int32  capacity, decimal  nominalOutput, decimal  nominalOutputPercentage, decimal  nonlinearityPercentage, Int32  minimumDeadLoad, decimal  vMin, Int32  nMax, Int32  safeLoad, Int32  ultimateLoad, string  shellMaterialName, bool  alloy, Int32  defaultCableLength, Int32  numberOfGauges, Int32  resistance, string  cCNumber, string  accuracyClass, string  application, Int32  temperingHardnessLow, Int32  temperingHardnessHigh, string  nTEPCertificationId, DateTime  nTEPCertificationTimestamp, string  oIMLCertificationId, DateTime  oIMLCertificationTimestamp, bool  testPointDirection, Guid  guidId)
     {

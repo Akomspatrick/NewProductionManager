@@ -6,7 +6,7 @@ namespace ProductionManager.Domain.Entities
         private ProductStage(){}
         public string Stage    { get; init; }  = string.Empty; 
         public string StageDescription    { get; init; }  = string.Empty; 
-        public int StageNo    { get; init; } 
+        public Int32 StageNo    { get; init; } 
         public string StageBarcode    { get; init; }  = string.Empty; 
         public string SaveBarCode    { get; init; }  = string.Empty; 
         public string SaveAndEndBarCode    { get; init; }  = string.Empty; 
@@ -14,9 +14,9 @@ namespace ProductionManager.Domain.Entities
         public  IReadOnlyCollection<Product> Products => _Products;
         private  List <DefectType> _DefectTypes { get;  set;}  = new List<DefectType>();
         public  IReadOnlyCollection<DefectType> DefectTypes => _DefectTypes;
-        public Guid GuidId    { get; init; } 
+        // public Guid GuidId    { get; init; } 
         
-        public static ProductStage Create(string  stage, string  stageDescription, int  stageNo, string  stageBarcode, string  saveBarCode, string  saveAndEndBarCode, Guid  guidId)
+        public static ProductStage Create(string  stage, string  stageDescription, Int32  stageNo, string  stageBarcode, string  saveBarCode, string  saveAndEndBarCode, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {

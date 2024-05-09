@@ -4,8 +4,8 @@ namespace ProductionManager.Domain.Entities
     public partial class ProductFinalVerifiationEvent  : BaseEntity
     {
         private ProductFinalVerifiationEvent(){}
-        public int Points    { get; init; } 
-        public int VerificationResult    { get; init; } 
+        public Int32 Points    { get; init; } 
+        public Int32 VerificationResult    { get; init; } 
         public string ReferenceSerial    { get; init; }  = string.Empty; 
         public string TesterName    { get; init; }  = string.Empty; 
         public decimal CalibratedOutput    { get; init; } 
@@ -42,13 +42,13 @@ namespace ProductionManager.Domain.Entities
         public decimal ForcePoint10    { get; init; } 
         public decimal DutPoint10    { get; init; } 
         public Tester Tester    { get; init; } 
-        public int ProductId    { get; init; } 
+        public Int32 ProductId    { get; init; } 
         public Product Product    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public DateTime TimeStamp    { get; init; } 
         public Guid GuidId    { get; init; } 
         
-        public static ProductFinalVerifiationEvent Create(int  points, int  verificationResult, string  referenceSerial, string  testerName, decimal  calibratedOutput, decimal  percentNonlinearity, decimal  dutZeroPoint, decimal  refPoint1, decimal  forcePoint1, decimal  dutPoint1, decimal  refPoint2, decimal  forcePoint2, decimal  dutPoint2, decimal  refPoint3, decimal  forcePoint3, decimal  dutPoint3, decimal  refPoint4, decimal  forcePoint4, decimal  dutPoint4, decimal  refPoint5, decimal  forcePoint5, decimal  dutPoint5, decimal  refPoint6, decimal  forcePoint6, decimal  dutPoint6, decimal  refPoint7, decimal  forcePoint7, decimal  dutPoint7, decimal  refPoint8, decimal  forcePoint8, decimal  dutPoint8, decimal  refPoint9, decimal  forcePoint9, decimal  dutPoint9, decimal  refPoint10, decimal  forcePoint10, decimal  dutPoint10, int  productId, string  userName, DateTime  timeStamp, Guid  guidId)
+        public static ProductFinalVerifiationEvent Create(Int32  points, Int32  verificationResult, string  referenceSerial, string  testerName, decimal  calibratedOutput, decimal  percentNonlinearity, decimal  dutZeroPoint, decimal  refPoint1, decimal  forcePoint1, decimal  dutPoint1, decimal  refPoint2, decimal  forcePoint2, decimal  dutPoint2, decimal  refPoint3, decimal  forcePoint3, decimal  dutPoint3, decimal  refPoint4, decimal  forcePoint4, decimal  dutPoint4, decimal  refPoint5, decimal  forcePoint5, decimal  dutPoint5, decimal  refPoint6, decimal  forcePoint6, decimal  dutPoint6, decimal  refPoint7, decimal  forcePoint7, decimal  dutPoint7, decimal  refPoint8, decimal  forcePoint8, decimal  dutPoint8, decimal  refPoint9, decimal  forcePoint9, decimal  dutPoint9, decimal  refPoint10, decimal  forcePoint10, decimal  dutPoint10, Int32  productId, string  userName, DateTime  timeStamp, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {
