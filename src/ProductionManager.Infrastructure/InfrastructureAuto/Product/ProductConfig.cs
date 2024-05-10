@@ -9,12 +9,10 @@ namespace ProductionManager.Infrastructure.Persistence.EntitiesConfig
         {
             entity.HasKey(e => new { e.ProductId });
             entity.Property(e => e.ModelName).HasMaxLength(32); 
-            entity.Property(e => e.SubStage).HasMaxLength(32); 
             entity.Property(e => e.InvoiceId).HasMaxLength(32); 
             entity.Property(e => e.SalesOrderId).HasMaxLength(32); 
-            entity.Property(e => e.DefaultTestingMode).HasMaxLength(32); 
-            entity.Property(e => e.ModelTypeGroupName).HasMaxLength(32); 
-            entity.Property(e => e.UsedTestingMode).HasMaxLength(32); 
+            entity.Property(e => e.TestingMode).HasMaxLength(32); 
+            entity.Property(e => e.ProcessFlowGroupName).HasMaxLength(32); 
             entity.Property(e => e.ThermexPurcharseOrderNo).HasMaxLength(32); 
             entity.Property(e => e.MachiningPurcharseOrderNo).HasMaxLength(32); 
             entity.Property(e => e.SteelPurcharseOrderNo).HasMaxLength(32); 

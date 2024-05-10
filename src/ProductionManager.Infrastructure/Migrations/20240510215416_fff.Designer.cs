@@ -11,8 +11,8 @@ using ProductionManager.Infrastructure.Persistence;
 namespace ProductionManager.Infrastructure.Migrations
 {
     [DbContext(typeof(ProductionManagerContext))]
-    [Migration("20240509221951_prod")]
-    partial class prod
+    [Migration("20240510215416_fff")]
+    partial class fff
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -208,22 +208,13 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasColumnType("varchar(32)");
 
                     b.Property<string>("AccuracyClass")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
-
-                    b.Property<bool>("Alloy")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Application")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("CCNumber")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
@@ -242,46 +233,22 @@ namespace ProductionManager.Infrastructure.Migrations
                     b.Property<int?>("MinimumDeadLoad")
                         .HasColumnType("int");
 
-                    b.Property<string>("ModelVersionGroupName")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
-
                     b.Property<string>("ModelVersionName")
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<string>("NTEPCertificationId")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
+                    b.Property<double?>("NominalOutput")
+                        .HasPrecision(18, 6)
+                        .HasColumnType("double");
 
-                    b.Property<DateTime?>("NTEPCertificationTimestamp")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<decimal>("NominalOutput")
+                    b.Property<decimal?>("NominalOutputPercentage")
                         .HasPrecision(18, 6)
                         .HasColumnType("decimal(18,6)");
 
-                    b.Property<decimal>("NominalOutputPercentage")
+                    b.Property<decimal?>("NonlinearityPercentage")
                         .HasPrecision(18, 6)
                         .HasColumnType("decimal(18,6)");
-
-                    b.Property<decimal>("NonlinearityPercentage")
-                        .HasPrecision(18, 6)
-                        .HasColumnType("decimal(18,6)");
-
-                    b.Property<int?>("NumberOfGauges")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OIMLCertificationId")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
-
-                    b.Property<DateTime?>("OIMLCertificationTimestamp")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("Resistance")
                         .HasColumnType("int");
@@ -290,18 +257,11 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ShellMaterialName")
-                        .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<int?>("TemperingHardnessHigh")
+                    b.Property<int>("TestCapacity")
                         .HasColumnType("int");
-
-                    b.Property<int?>("TemperingHardnessLow")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("TestPointDirection")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime(6)");
@@ -316,15 +276,15 @@ namespace ProductionManager.Infrastructure.Migrations
 
                     b.Property<string>("VersionDescription")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("varchar(64)");
+                        .HasMaxLength(160)
+                        .HasColumnType("varchar(160)");
 
                     b.Property<int?>("nMax")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("vMin")
+                    b.Property<double?>("vMin")
                         .HasPrecision(11, 1)
-                        .HasColumnType("decimal(11,1)");
+                        .HasColumnType("double");
 
                     b.HasKey("ModelVersionId", "ModelName");
 
@@ -409,11 +369,6 @@ namespace ProductionManager.Infrastructure.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
-                    b.Property<string>("DefaultTestingMode")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
-
                     b.Property<Guid>("GuidId")
                         .HasColumnType("char(36)");
 
@@ -440,13 +395,13 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<string>("ModelTypeGroupName")
+                    b.Property<int>("ModelVersionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProcessFlowGroupName")
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
-
-                    b.Property<int>("ModelVersionId")
-                        .HasColumnType("int");
 
                     b.Property<string>("ProductStageStage")
                         .HasColumnType("varchar(32)");
@@ -465,7 +420,10 @@ namespace ProductionManager.Infrastructure.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
 
-                    b.Property<string>("SubStage")
+                    b.Property<int>("TestCapacity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TestingMode")
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("varchar(32)");
@@ -477,11 +435,6 @@ namespace ProductionManager.Infrastructure.Migrations
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("UsedTestingMode")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
 
                     b.HasKey("ProductId");
 

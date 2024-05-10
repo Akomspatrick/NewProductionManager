@@ -35,8 +35,7 @@ namespace ProductionManager.BaseModels.Entities
         public required int CableLength { get; init; } = 0;
         public required int InspectionResult { get; init; } = 0;
         public string TestingMode { get; init; } = string.Empty; // Manual, Automatic from the Model Type
-        public string ModelTypeGroupName { get; init; } = string.Empty;// DefaultTestingMode and ModelTypeGroupName should be taken from the ModelTypeGroup via ModelType
-        public string UsedTestingMode { get; init; } = string.Empty; // default to aboveManual, Automatic from the Model Type
+        public string ProcessFlowGroupName { get; init; } = string.Empty;// DefaultTestingMode and ModelTypeGroupName should be taken from the ModelTypeGroup via ModelType
         public string ThermexPurcharseOrderNo { get; init; } = string.Empty;//stage
         public string MachiningPurcharseOrderNo { get; init; } = string.Empty;//stage
         public string SteelPurcharseOrderNo { get; init; } = string.Empty;

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProductionManager.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class prod : Migration
+    public partial class fff : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -74,11 +74,9 @@ namespace ProductionManager.Infrastructure.Migrations
                     ModelVersionId = table.Column<int>(type: "int", nullable: false),
                     ModelName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    VersionDescription = table.Column<string>(type: "varchar(64)", maxLength: 64, nullable: false)
+                    VersionDescription = table.Column<string>(type: "varchar(160)", maxLength: 160, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ModelVersionName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    ModelVersionGroupName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     DefaultTestingMode = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -86,35 +84,25 @@ namespace ProductionManager.Infrastructure.Migrations
                     UserName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Capacity = table.Column<int>(type: "int", nullable: false),
-                    NominalOutput = table.Column<decimal>(type: "decimal(18,6)", precision: 18, scale: 6, nullable: false),
-                    NominalOutputPercentage = table.Column<decimal>(type: "decimal(18,6)", precision: 18, scale: 6, nullable: false),
-                    NonlinearityPercentage = table.Column<decimal>(type: "decimal(18,6)", precision: 18, scale: 6, nullable: false),
+                    TestCapacity = table.Column<int>(type: "int", nullable: false),
+                    NominalOutput = table.Column<double>(type: "double", precision: 18, scale: 6, nullable: true),
+                    NominalOutputPercentage = table.Column<decimal>(type: "decimal(18,6)", precision: 18, scale: 6, nullable: true),
+                    NonlinearityPercentage = table.Column<decimal>(type: "decimal(18,6)", precision: 18, scale: 6, nullable: true),
                     MinimumDeadLoad = table.Column<int>(type: "int", nullable: true),
-                    vMin = table.Column<decimal>(type: "decimal(11,1)", precision: 11, scale: 1, nullable: false),
+                    vMin = table.Column<double>(type: "double", precision: 11, scale: 1, nullable: true),
                     nMax = table.Column<int>(type: "int", nullable: true),
                     SafeLoad = table.Column<int>(type: "int", nullable: true),
                     UltimateLoad = table.Column<int>(type: "int", nullable: true),
-                    ShellMaterialName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
+                    ShellMaterialName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Alloy = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     DefaultCableLength = table.Column<int>(type: "int", nullable: true),
-                    NumberOfGauges = table.Column<int>(type: "int", nullable: true),
                     Resistance = table.Column<int>(type: "int", nullable: true),
-                    CCNumber = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
+                    CCNumber = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    AccuracyClass = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
+                    AccuracyClass = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Application = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
+                    Application = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    TemperingHardnessLow = table.Column<int>(type: "int", nullable: true),
-                    TemperingHardnessHigh = table.Column<int>(type: "int", nullable: true),
-                    NTEPCertificationId = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    NTEPCertificationTimestamp = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    OIMLCertificationId = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    OIMLCertificationTimestamp = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    TestPointDirection = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     GuidId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
                 },
                 constraints: table =>
@@ -303,10 +291,9 @@ namespace ProductionManager.Infrastructure.Migrations
                     ModelName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Capacity = table.Column<int>(type: "int", nullable: false),
+                    TestCapacity = table.Column<int>(type: "int", nullable: false),
                     Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Stage = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    SubStage = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     InvoiceId = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -314,11 +301,9 @@ namespace ProductionManager.Infrastructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CableLength = table.Column<int>(type: "int", nullable: false),
                     InspectionResult = table.Column<int>(type: "int", nullable: false),
-                    DefaultTestingMode = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
+                    TestingMode = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    ModelTypeGroupName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    UsedTestingMode = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
+                    ProcessFlowGroupName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ThermexPurcharseOrderNo = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),

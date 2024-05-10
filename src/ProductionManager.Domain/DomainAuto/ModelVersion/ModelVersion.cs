@@ -8,39 +8,30 @@ namespace ProductionManager.Domain.Entities
         public string VersionDescription    { get; init; }  = string.Empty; 
         public string ModelVersionName    { get; init; }  = string.Empty; 
         public string ModelName    { get; init; }  = string.Empty; 
-        private  List <Product> _Products { get;  set;}  = new List<Product>();
-        public  IReadOnlyCollection<Product> Products => _Products;
-        public string ModelVersionGroupName    { get; init; }  = string.Empty; 
         public string DefaultTestingMode    { get; init; }  = string.Empty; 
         public DateTime Timestamp    { get; init; } 
         public string UserName    { get; init; }  = string.Empty; 
         public Int32 Capacity    { get; init; } 
-        public decimal NominalOutput    { get; init; } 
-        public decimal NominalOutputPercentage    { get; init; } 
-        public decimal NonlinearityPercentage    { get; init; } 
+        public Int32 TestCapacity    { get; init; } 
+        public double? NominalOutput    { get; init; } 
+        public decimal? NominalOutputPercentage    { get; init; } 
+        public decimal? NonlinearityPercentage    { get; init; } 
         public Int32? MinimumDeadLoad    { get; init; } 
-        public decimal vMin    { get; init; } 
+        public double? vMin    { get; init; } 
         public Int32? nMax    { get; init; } 
         public Int32? SafeLoad    { get; init; } 
         public Int32? UltimateLoad    { get; init; } 
-        public string ShellMaterialName    { get; init; }  = string.Empty; 
-        public bool Alloy    { get; init; } 
+        public string? ShellMaterialName    { get; init; }  = string.Empty; 
         public Int32? DefaultCableLength    { get; init; } 
-        public Int32? NumberOfGauges    { get; init; } 
         public Int32? Resistance    { get; init; } 
-        public string CCNumber    { get; init; }  = string.Empty; 
-        public string AccuracyClass    { get; init; }  = string.Empty; 
-        public string Application    { get; init; }  = string.Empty; 
-        public Int32? TemperingHardnessLow    { get; init; } 
-        public Int32? TemperingHardnessHigh    { get; init; } 
-        public string NTEPCertificationId    { get; init; }  = string.Empty; 
-        public DateTime? NTEPCertificationTimestamp    { get; init; } 
-        public string OIMLCertificationId    { get; init; }  = string.Empty; 
-        public DateTime? OIMLCertificationTimestamp    { get; init; } 
-        public bool TestPointDirection    { get; init; } 
+        public string? CCNumber    { get; init; }  = string.Empty; 
+        public string? AccuracyClass    { get; init; }  = string.Empty; 
+        public string? Application    { get; init; }  = string.Empty; 
+        private  List <Product> _Products { get;  set;}  = new List<Product>();
+        public  IReadOnlyCollection<Product> Products => _Products;
         // public Guid GuidId    { get; init; } 
         
-        public static ModelVersion Create(Int32  modelVersionId, string  versionDescription, string  modelVersionName, string  modelName, string  modelVersionGroupName, string  defaultTestingMode, DateTime  timestamp, string  userName, Int32  capacity, decimal  nominalOutput, decimal  nominalOutputPercentage, decimal  nonlinearityPercentage, Int32  minimumDeadLoad, decimal  vMin, Int32  nMax, Int32  safeLoad, Int32  ultimateLoad, string  shellMaterialName, bool  alloy, Int32  defaultCableLength, Int32  numberOfGauges, Int32  resistance, string  cCNumber, string  accuracyClass, string  application, Int32  temperingHardnessLow, Int32  temperingHardnessHigh, string  nTEPCertificationId, DateTime  nTEPCertificationTimestamp, string  oIMLCertificationId, DateTime  oIMLCertificationTimestamp, bool  testPointDirection, Guid  guidId)
+        public static ModelVersion Create(Int32  modelVersionId, string  versionDescription, string  modelVersionName, string  modelName, string  defaultTestingMode, DateTime  timestamp, string  userName, Int32  capacity, Int32  testCapacity, double  nominalOutput, decimal  nominalOutputPercentage, decimal  nonlinearityPercentage, Int32  minimumDeadLoad, double  vMin, Int32  nMax, Int32  safeLoad, Int32  ultimateLoad, string  shellMaterialName, Int32  defaultCableLength, Int32  resistance, string  cCNumber, string  accuracyClass, string  application, Guid  guidId)
     {
     if (guidId == Guid.Empty)
     {
@@ -52,11 +43,11 @@ namespace ProductionManager.Domain.Entities
             VersionDescription = versionDescription ,
             ModelVersionName = modelVersionName ,
             ModelName = modelName ,
-            ModelVersionGroupName = modelVersionGroupName ,
             DefaultTestingMode = defaultTestingMode ,
             Timestamp = timestamp ,
             UserName = userName ,
             Capacity = capacity ,
+            TestCapacity = testCapacity ,
             NominalOutput = nominalOutput ,
             NominalOutputPercentage = nominalOutputPercentage ,
             NonlinearityPercentage = nonlinearityPercentage ,
@@ -66,20 +57,11 @@ namespace ProductionManager.Domain.Entities
             SafeLoad = safeLoad ,
             UltimateLoad = ultimateLoad ,
             ShellMaterialName = shellMaterialName ,
-            Alloy = alloy ,
             DefaultCableLength = defaultCableLength ,
-            NumberOfGauges = numberOfGauges ,
             Resistance = resistance ,
             CCNumber = cCNumber ,
             AccuracyClass = accuracyClass ,
             Application = application ,
-            TemperingHardnessLow = temperingHardnessLow ,
-            TemperingHardnessHigh = temperingHardnessHigh ,
-            NTEPCertificationId = nTEPCertificationId ,
-            NTEPCertificationTimestamp = nTEPCertificationTimestamp ,
-            OIMLCertificationId = oIMLCertificationId ,
-            OIMLCertificationTimestamp = oIMLCertificationTimestamp ,
-            TestPointDirection = testPointDirection ,
             GuidId = guidId ,
         };
     }
